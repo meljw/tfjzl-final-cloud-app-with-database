@@ -61,7 +61,7 @@
                             <h5>{{ question.content }}</h5>
                         </div>
                         {% csrf_token % }
-                        <div class="form-group">
+                        <div class="form-group" action="{% url 'onlinecourse:submit' course.id %}">
                             {% for choice in question.choice_set.all %}
                             <div class="form-check">
                                 <label class="form-check-label">
@@ -74,6 +74,7 @@
                         </div>
                     </div>
                     {% endfor %}
+                    <input class="btn-success btn-block" type="submit" value="Submit">
                 </form>    
             </div>
             {% endif %}
